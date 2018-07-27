@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:MobCATOrNot" 
+             xmlns:conv="clr-namespace:MobCATOrNot.Converters;assembly=MobCATOrNot"
+             x:Class="MobCATOrNot.MainPage"
+             Title="MobCAT or Not 🤔">
+    <ContentPage.Resources>
+        <conv:InvertBoolConverter x:Key="invertBool" />
+    </ContentPage.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+       </Grid.RowDefinitions>
+       <Image x:Name="SourceImage"
+              Grid.Row="0"
+              Aspect="AspectFill" 
+              HorizontalOptions="FillAndExpand"
+              VerticalOptions="FillAndExpand"
+              WidthRequest="200"
+              BackgroundColor="Silver"
+              Source="{Binding SelectedImage}"/>
+        <Label Text="{Binding PredictionTagsText}" 
+               VerticalOptions="End" 
+               Margin="5" 
+               BackgroundColor="#aacecece" 
+               TextColor="Black"
+               FontSize="Small"/>
+        <StackLayout Grid.Row="1" 
+                     VerticalOptions="CenterAndExpand" 
+                     HorizontalOptions="CenterAndExpand">
+            <Button x:Name="CheckMobCAT"
+                    Text="Check if MobCAT" 
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    Command="{Binding CheckMobCAT}"
+                    IsEnabled="{Binding IsBusy, Converter={StaticResource invertBool}}"/>
+            <Button x:Name="UpdateModel" 
+                    Text="Update AI Model"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    Command="{Binding UpdateModel}"
+                    IsEnabled="{Binding IsBusy, Converter={StaticResource invertBool}}"/>
+            <Button x:Name="AddMobCAT" 
+                    Text="Add new MobCAT"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    Command="{Binding AddNewMobCAT}"
+                    IsEnabled="{Binding IsBusy, Converter={StaticResource invertBool}}"/>
+            <Label x:Name="ResultLabel" 
+                   Text="{Binding StatusText}" 
+                   HorizontalOptions="Center" 
+                   VerticalOptions="Center" 
+                   Margin="20,0"/>
+            <Image
+                   HorizontalOptions="Center" 
+                   VerticalOptions="Center" 
+                   IsVisible="{Binding AnyResultAvailable}">
+                <Image.Source>
+                    <FileImageSource File="{Binding MobCatStatusImage}" />
+                </Image.Source>
+            </Image>
+        </StackLayout>
+    </Grid>
+</ContentPage>

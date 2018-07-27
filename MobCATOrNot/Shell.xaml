@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms" 
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+       xmlns:local="clr-namespace:MobCATOrNot"
+       Route="mobcatornot"
+       RouteHost="www.cat.com"
+       RouteScheme="http"
+       Title="MobCAT or Not"
+       FlyoutBehavior="Flyout"
+       x:Class="MobCATOrNot.Shell" 
+       FlyoutBackgroundColor="#3498DB">
+
+    <Shell.Resources>
+        <ResourceDictionary Source="GlobalStyles.xaml"/>
+    </Shell.Resources>
+    <Shell.FlyoutHeader>
+         <local:FlyoutHeader />
+    </Shell.FlyoutHeader>
+     <ShellContent Route="home" Title="Home" ContentTemplate="{DataTemplate local:MainPage}"/>
+     <ShellContent Route="addnewmobcat" Title="Add New MobCAT" ContentTemplate="{DataTemplate local:AddNewMobCat}"/> 
+     <ShellContent Route="about" Title="About" ContentTemplate="{DataTemplate local:About}"/>
+
+    
+</Shell>

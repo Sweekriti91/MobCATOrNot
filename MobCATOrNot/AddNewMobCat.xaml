@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:conv="clr-namespace:MobCATOrNot.Converters;assembly=MobCATOrNot"
+    x:Class="MobCATOrNot.AddNewMobCat">
+    <ContentPage.Resources>
+        <conv:InvertBoolConverter x:Key="invertBool" />
+    </ContentPage.Resources>
+<Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <ScrollView IsVisible="{Binding AnyPhotoAvailable}"
+                    BackgroundColor="Silver">
+            <FlexLayout x:Name="flexLayout"
+                        Wrap="Wrap"
+                        Direction="Row"
+                        AlignContent="Start"
+                        AlignItems="Start"
+                        JustifyContent="Start"
+                        VerticalOptions="FillAndExpand"
+                        HorizontalOptions="FillAndExpand"
+                        IsClippedToBounds="true">
+            </FlexLayout>
+        </ScrollView>
+        <Label Text="Added photos will appear here" 
+               BackgroundColor="Silver"
+               VerticalOptions="FillAndExpand"
+               HorizontalOptions="FillAndExpand"
+               VerticalTextAlignment="Center"
+               HorizontalTextAlignment="Center"
+               IsVisible="{Binding AnyPhotoAvailable, Converter={StaticResource invertBool}}"/>
+        <StackLayout Grid.Row="1" 
+                     Orientation="Horizontal"
+                     HorizontalOptions="Start"
+                     VerticalOptions="Center">
+            <Switch VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="CenterAndExpand"
+                    Margin="20,0,10,0"
+                    IsToggled="{Binding MobCatPhotos}" />
+            <Label Text="{Binding MobCatOrNotText}" 
+                   VerticalTextAlignment="Center"/>
+            <Entry WidthRequest="100" 
+                   Margin="50,0,0,0" 
+                   Text="{Binding PersonTag}"/>
+        </StackLayout>
+        <Label Grid.Row="2"
+               VerticalOptions="CenterAndExpand"
+               HorizontalOptions="CenterAndExpand"
+               Margin="20,0"
+               Text="{Binding StatusText}" />
+        <StackLayout Orientation="Horizontal"
+                     Grid.Row="3"
+                     HorizontalOptions="CenterAndExpand"
+                     Spacing="15">
+            <Button Text="1. Photos"
+                Grid.Row="1"
+                Grid.Column="0"
+                Command="{Binding AddPhotos}"
+                IsEnabled="{Binding IsBusy, Converter={StaticResource invertBool}}"/>
+            <Button Text="2. Upload"
+                Grid.Row="1"
+                Grid.Column="0"
+                Command="{Binding UploadPhotos}"
+                IsEnabled="{Binding IsBusy, Converter={StaticResource invertBool}}"/>
+            <Button Text="3. Train!"
+                Grid.Row="1"
+                Grid.Column="1"
+                Command="{Binding TrainIteration}"
+                IsEnabled="{Binding IsBusy, Converter={StaticResource invertBool}}"/>
+            <Button Text="4. Check"
+                Grid.Row="1"
+                Grid.Column="1"
+                Command="{Binding CheckIteration}"
+                IsEnabled="{Binding IsBusy, Converter={StaticResource invertBool}}"/>
+        </StackLayout>
+    </Grid>
+   
+</ContentPage>
