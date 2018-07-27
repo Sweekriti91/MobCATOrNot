@@ -9,9 +9,9 @@ The model it uses was trained with [Microsoft's Custom Vision service](https://w
 All analysis is done using Custom Vision services. To use this solution, you must setup a model and then fill in the API Keys inside of [**Constants.cs**](MobCATOrNot/Constants.cs)
 
 ## Custom Vision Services
-- All the interesting code is in [CustomVisionAPIService.cs](Services/CustomVisionAPIService.cs). You can find the interfaces where we have wrapped the Custom Vision API. 
+- All the interesting code is in [CustomVisionAPIService.cs](MobCATOrNot/Services/CustomVisionAPIService.cs). You can find the interfaces where we have wrapped the Custom Vision API. 
 
-- For the Vision Models, the interface used by Xamarin.Forms can be found in [ICustomVisionService.cs](Services/ICustomVisionService.cs). Each platform level implementation can be found in their respective folders. For iOS, which uses CoreML can be found [here](MobCATOrNot.iOS/Services/CustomVisionService.cs) and for Android, which uses TensorFlow can be found [here](MobCATOrNot.Android/Services/CustomVisionService.cs)
+- For the Vision Models, the interface used by Xamarin.Forms can be found in [ICustomVisionService.cs](MobCATOrNot/Services/ICustomVisionService.cs). Each platform level implementation can be found in their respective folders. For iOS, which uses CoreML can be found [here](MobCATOrNot.iOS/Services/CustomVisionService.cs) and for Android, which uses TensorFlow can be found [here](MobCATOrNot.Android/Services/CustomVisionService.cs)
 
 ## Xamarin Forms
 The app has been written using Xamarin.Forms and the Early Preview of the [Shell Container Spec](https://github.com/davidortinau/Gastropods). 
