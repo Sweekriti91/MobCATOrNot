@@ -11,7 +11,7 @@ namespace MobCATOrNot
         {
             InitializeComponent();
 
-            MainPage = new MobCATOrNot.Shell();
+            MainPage = new AppShell();
         }
 
         protected override void OnStart()

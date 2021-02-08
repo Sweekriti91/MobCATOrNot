@@ -5,9 +5,9 @@ using Xamarin.Forms;
 
 namespace MobCATOrNot
 {
-    public partial class Shell : Xamarin.Forms.Shell
+    public partial class AppShell : Shell
     {
-        public Shell()
+        public AppShell()
         {
             InitializeComponent();
         }
