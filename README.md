@@ -12,6 +12,12 @@ The model it uses was trained with [Microsoft's Custom Vision service](https://w
 
 - All analysis is done using Custom Vision services. To use this solution, you must setup a model and then fill in the API Keys inside of [**Constants.cs**](MobCATOrNot/Constants.cs)
 
+
+## Azure Functions App Explanation
+
+
+## Custom Vision API Wrapper
+
 ## Custom Vision Services
 - All the interesting code is in [CustomVisionAPIService.cs](MobCATOrNot/Services/CustomVisionAPIService.cs). You can find the interfaces where we have wrapped the Custom Vision API. 
 
